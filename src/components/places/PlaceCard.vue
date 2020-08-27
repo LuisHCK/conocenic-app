@@ -62,9 +62,10 @@ export default {
     flex-direction: column;
 
     .card-image {
-        min-width: 120px;
-        height: 120px;
+        min-width: 150px;
+        height: 150px;
         background-size: cover;
+        background-position: center;
     }
 
     .card-content {
