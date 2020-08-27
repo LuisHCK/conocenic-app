@@ -17,7 +17,7 @@
                         <button class="button icon-button">
                             <i class="mdi mdi-heart-outline" />
                         </button>
-                        <button class="button icon-button">
+                        <button class="button icon-button" @click="share">
                             <i class="mdi mdi-share" />
                         </button>
                     </div>
@@ -42,7 +42,10 @@
                 v-html="parseMD(department.description)"
             ></div>
 
-            <div class="section-title">
+            <div
+                v-if="department.events && department.events.length"
+                class="section-title"
+            >
                 Eventos
             </div>
 
@@ -168,6 +171,17 @@ export default {
 
         getPhoto(url) {
             return fetchImage(url);
+        },
+
+        async share() {
+            if (navigator.share) {
+                const shareData = {
+                    title: this.place.name,
+                    text: `Visitä ${this.place.nane} a travéz de conocenicaragua.com`,
+                };
+
+                await navigator.share(shareData);
+            }
         },
     },
 };

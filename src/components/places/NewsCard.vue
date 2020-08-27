@@ -62,6 +62,7 @@ export default {
 
     .title {
         margin-top: 0px;
+        margin-bottom: 10px;
     }
 
     .category {

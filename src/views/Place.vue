@@ -20,7 +20,7 @@
                         <button class="button icon-button">
                             <i class="mdi mdi-heart-outline" />
                         </button>
-                        <button class="button icon-button">
+                        <button class="button icon-button" @click="share">
                             <i class="mdi mdi-share" />
                         </button>
                     </div>
@@ -53,14 +53,9 @@
             <div
                 v-for="photo in place.photos"
                 :key="'photo' + photo.id"
-                style="padding: 15px"
                 class="photo"
-            >
-                <div
-                    class="card"
-                    :style="{ 'background-image': getImage(photo.url) }"
-                />
-            </div>
+                :style="{ 'background-image': getImage(photo.url) }"
+            />
         </div>
     </div>
 </template>
@@ -108,6 +103,17 @@ export default {
 
         getImage(url) {
             return `url("${fetchImage(url)}")`;
+        },
+
+        async share() {
+            if (navigator.share) {
+                const shareData = {
+                    title: this.place.name,
+                    text: `Visitä ${this.place.nane} a travéz de conocenicaragua.com`,
+                };
+
+                await navigator.share(shareData);
+            }
         },
     },
 
@@ -171,21 +177,15 @@ export default {
 .photos-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 15px;
 
     .photo {
-        width: 45%;
+        width: 50%;
         height: 300px;
         display: flex;
-
-        &:nth-child(odd) {
-            padding-right: 0px;
-        }
-
-        .card {
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-        }
+        background-size: cover;
+        background-position: center;
+        outline: 5px solid white;
     }
 }
 </style>
