@@ -176,8 +176,9 @@ export default {
         async share() {
             if (navigator.share) {
                 const shareData = {
-                    title: this.place.name,
-                    text: `Visitä ${this.place.nane} a travéz de conocenicaragua.com`,
+                    title: this.department.name,
+                    text: `Conocé ${this.department.name} a travéz de conocenicaragua.com`,
+                    url: window.location
                 };
 
                 await navigator.share(shareData);

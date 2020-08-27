@@ -109,7 +109,8 @@ export default {
             if (navigator.share) {
                 const shareData = {
                     title: this.place.name,
-                    text: `Visitä ${this.place.nane} a travéz de conocenicaragua.com`,
+                    text: `Conocé ${this.place.name} a travéz de conocenicaragua.com`,
+                    url: window.location
                 };
 
                 await navigator.share(shareData);
