@@ -14,6 +14,11 @@ const routes = [
         name: "Department",
         component: () => import("../views/Department.vue"),
     },
+    {
+        path: "/places/:id",
+        name: "Place",
+        component: () => import("../views/Place.vue"),
+    },
 ];
 
 const router = new VueRouter({

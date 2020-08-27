@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 .container {
     margin-right: auto;
@@ -6,4 +6,47 @@
     background-color: white;
     max-width: 720px;
     width: 100%;
+    min-height: 100vh;
+}
+
+/** BUTTONS */
+
+.button {
+    height: 34px;
+    cursor: pointer;
+
+    &.icon-button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+    }
+}
+
+/** CARD */
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 6px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.082);
+
+    &.bordered {
+        border: 1px solid $grey-200;
+    }
+
+    .card-body {
+        display: flex;
+        width: 100%;
+    }
+
+    .card-footer {
+        margin-top: 10px;
+        border-top: 1px solid $grey-200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 15px;
+    }
 }
