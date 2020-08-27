@@ -177,7 +177,7 @@ export default {
             if (navigator.share) {
                 const shareData = {
                     title: this.department.name,
-                    text: `Conocé ${this.department.name} a travéz de conocenicaragua.com`,
+                    text: `Te invito a conocer el departamento de ${this.department.name}`,
                     url: window.location
                 };
 
